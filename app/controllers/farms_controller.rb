@@ -3,6 +3,15 @@ class FarmsController < ApplicationController
 
   def index
     @farms = Farm.all
+    @form_title = "Farm Inded Page"
+    @form_myflat = false
+  end
+
+  def myfarms
+    @farms = Farm.where(user: current_user)
+    @form_title = "My farms"
+    @form_myflat = true
+    render :index
   end
 
   def new
