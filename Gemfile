@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.3'
 
 gem 'devise'
+gem 'figaro'
 
 gem 'bootsnap', require: false
 gem 'figaro'
