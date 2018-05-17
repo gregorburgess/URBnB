@@ -1,22 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-            <div class="card-category">Popular</div>
-              <div class="card-description">
-                <h2>Le Wagon Shanghai</h2>
-                <p>Very cool city, the best</p>
-              </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <a class="card-link" href="#" ></a>
+
+ <div class="container">
+   <div class="row">
+      <%  @farms.each do |farm| %>
+     <div class="col-xs-3 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+         <div class="card-category"><%= farm.description %>
+         </div>
+          <div class="card-description">
+          <h2><%=farm.name%></h2>
+          <p>$<%=farm.price%>per night</p>
           </div>
-        </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
+             <img class="card-user" src="https://kitt.lewagon.cplaceholder/users/tgenaitay">
+          <a class="card-link" href="#" ></a>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-    </div>
-  </div>
-</div>
+       <% end %>
+   </div>
+ </div>
