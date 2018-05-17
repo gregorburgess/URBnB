@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# 10.times do
+# Farm.create!(name: "hello", country: "Colombia", price: 12, user_id: 1)
+# end
 # Users / Zaina
 userOwner1 = User.new(email: "owner1@a.a", password: "password")
 userOwner1.save!
