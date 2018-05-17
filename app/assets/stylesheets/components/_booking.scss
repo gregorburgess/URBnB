@@ -1,7 +1,7 @@
 .booking {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 20px 50px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
 .booking:last-child {
@@ -42,8 +42,13 @@
 }
 .booking-status {
   font-size: 14px;
+  width: 120px;
+}
+
+.status {
   font-weight: bold;
 }
+
 .status.accepted {
   color: #04A366;
 }
@@ -53,3 +58,25 @@
 .status.pending {
   color: lightgrey;
 }
+
+.booking-price{
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.booking-review {
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.review-rating {
+ font-weight: bold;
+}
+
+.review-link {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+

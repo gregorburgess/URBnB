@@ -1,5 +1,4 @@
 
-<h2>OWNER TAB</h2>
 
 <div class="bookings">
   <% @booking_owner.each do |booking| %>
@@ -13,9 +12,10 @@
       <p><strong><%= "Booking from #{booking.start_date} to #{booking.end_date}"%></strong></p>
       <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
     </div>
+
     <div class="booking-status">
       <p class="status pending">Pending</p>
-      <p class="price"><%= booking.total_price %> </p>
+      <p class="price"><%= booking.total_price %> USD</p>
     </div>
   </div>
 
