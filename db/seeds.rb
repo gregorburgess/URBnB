@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+farms = Farm.new(name: "My farm #1", description: "Description farm", location: "Location 1", city: "city 1", country: "Country", user: User.find(1))
