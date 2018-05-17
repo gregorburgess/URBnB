@@ -108,8 +108,8 @@ farm3.save!
     total_price: (100..250).to_a.sample,
     start_date: Faker::Date.backward(5),
     end_date: Faker::Date.forward(18),
-    user_id: (1..4).to_a.sample,
-    farm_id: (1..3).to_a.sample
+    user_id: User.pluck(:id).sample,
+    farm_id: Farm.pluck(:id).sample
   )
   booking.save!
 end
