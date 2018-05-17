@@ -1,0 +1,25 @@
+<h1>WELCOME TO MY DASHBOARD :)</h1>
+<p>Find me in app/views/dashboard/show.html.erb</p>
+
+
+<h2>GUEST TAB</h2>
+
+<div class="bookings">
+  <% @booking_guest.each do |booking| %>
+
+  <div class="booking">
+    <%= image_tag('farm-placeholder.jpeg', class: "img-small") %>
+    <div class="booking-body">
+      <p><strong><%= "Booking from #{booking.start_date} to #{booking.end_date}"%></strong></p>
+      <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
+    </div>
+    <div class="booking-status">
+      <p class="status pending">Pending</p>
+      <p class="price"><%= booking.total_price %> </p>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
+
