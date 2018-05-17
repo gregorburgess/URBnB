@@ -3,7 +3,7 @@
    <div class="row">
       <%  @farms.each do |farm| %>
      <div class="col-xs-3 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path ("2.jpg")%>);">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path farm.photo, height: 300, width: 400, crop: :fill %>');">
          <div class="card-category"><%= farm.description %>
          </div>
           <div class="card-description">

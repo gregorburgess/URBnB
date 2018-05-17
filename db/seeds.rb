@@ -115,4 +115,11 @@ farm3.save!
 end
 
 
+photo_url = "https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=187b9c5c4cab96d11794528ed75ce0d4&auto=format&fit=crop&w=2552&q=80"
+
+Farm.all.each do |farm|
+  farm.remote_photo_url =  photo_url
+  farm.save!
+end
+
 
