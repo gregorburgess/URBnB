@@ -4,6 +4,7 @@ ruby '2.4.3'
 gem 'devise'
 gem 'cloudinary'
 gem 'simple_form'
+gem 'faker'
 
 gem 'bootsnap', require: false
 gem 'figaro'

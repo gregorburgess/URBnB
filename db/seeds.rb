@@ -45,55 +45,74 @@ farm3.save!
 
 
 #Booking Farm 1
-start_date = Date.new(2018,1,1)
-end_date = Date.new(2018,1,31)
-user = userGuest1
-farm = farm1
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# start_date = Date.new(2018,1,1)
+# end_date = Date.new(2018,1,31)
+# user = userGuest1
+# farm = farm1
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
 
-start_date = Date.new(2018,2,1)
-end_date = Date.new(2018,2,15)
-user = userGuest2
-farm = farm1
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# start_date = Date.new(2018,2,1)
+# end_date = Date.new(2018,2,15)
+# user = userGuest2
+# farm = farm1
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
 
-start_date = Date.new(2018,3,1)
-end_date = Date.new(2018,3,15)
-user = userGuest1
-farm = farm1
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# start_date = Date.new(2018,3,1)
+# end_date = Date.new(2018,3,15)
+# user = userGuest1
+# farm = farm1
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
 
-start_date = Date.new(2018,1,1)
-end_date = Date.new(2018,1,15)
-user = userGuest2
-farm = farm2
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# start_date = Date.new(2018,1,1)
+# end_date = Date.new(2018,1,15)
+# user = userGuest2
+# farm = farm2
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
 
-start_date = Date.new(2018,2,1)
-end_date = Date.new(2018,2,15)
-user = userGuest3
-farm = farm2
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# start_date = Date.new(2018,2,1)
+# end_date = Date.new(2018,2,15)
+# user = userGuest3
+# farm = farm2
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
 
 
-start_date = Date.new(2018,1,1)
-end_date = Date.new(2018,3,31)
-user = userGuest4
-farm = farm3
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# start_date = Date.new(2018,1,1)
+# end_date = Date.new(2018,3,31)
+# user = userGuest4
+# farm = farm3
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
 
-# Cross  booking
-start_date = Date.new(2018,2,1)
-end_date = Date.new(2018,2,15)
-user = userOwner1
-farm = farm2
-booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
-booking.save!
+# # Cross  booking
+# start_date = Date.new(2018,2,1)
+# end_date = Date.new(2018,2,15)
+# user = userOwner1
+# farm = farm2
+# booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+# booking.save!
+
+# more booking seeds
+
+
+
+15.times do
+  booking = Booking.new(
+    approved: rand(2) == 1 ? true : false,
+    review: "slkjlskjdflksdjflkjslfdkjsdlfkjsdlkfjsdlkfjlsdkjflskjdflksdjfljsldkjflksjdflkjsdlfk",
+    rating:  (0..5).to_a.sample,
+    total_price: (100..250).to_a.sample,
+    start_date: Faker::Date.backward(5),
+    end_date: Faker::Date.forward(18),
+    user_id: (1..4).to_a.sample,
+    farm_id: (1..3).to_a.sample
+  )
+  booking.save!
+end
+
 
 
