@@ -5,6 +5,7 @@ gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'simple_form'
+gem 'faker'
 
 gem 'bootsnap', require: false
 gem 'figaro'

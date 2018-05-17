@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     collection do
       get 'myfarms', to: "farms#myfarms"
     end
-
   end
 
   resource :bookings, only: [:destroy] do
@@ -20,5 +19,4 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: "dashboard#index"
-
 end
