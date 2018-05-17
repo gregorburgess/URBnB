@@ -85,4 +85,12 @@ farm = farm3
 booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
 booking.save!
 
+# Cross  booking
+start_date = Date.new(2018,2,1)
+end_date = Date.new(2018,2,15)
+user = userOwner1
+farm = farm2
+booking = Booking.new(start_date: start_date, end_date: end_date, user: user, farm: farm1)
+booking.save!
+
 
