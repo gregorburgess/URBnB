@@ -4,22 +4,28 @@
 
 <h2>GUEST TAB</h2>
 
-<div class="bookings">
-  <% @booking_guest.each do |booking| %>
 
-  <div class="booking">
-    <%= image_tag('farm-placeholder.jpeg', class: "img-small") %>
-    <div class="booking-body">
-      <p><strong><%= "Booking from #{booking.start_date} to #{booking.end_date}"%></strong></p>
-      <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
+
+<div>
+
+<div class="tabs">
+  <a class="tab active" href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">
+    <h3>STEP 1</h3>
+    <p>x</p>
+  </a>
+  <a class="tab" href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">
+    <h3>STEP 2</h3>
+    <p>x</p>
+  </a>
+</div>
+
+ <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="tab1">
+      <%= render 'dashboard/tabs/tab_guest' %>
     </div>
-    <div class="booking-status">
-      <p class="status pending">Pending</p>
-      <p class="price"><%= booking.total_price %> </p>
+    <div role="tabpanel" class="tab-pane" id="tab2">
+      <%= render 'dashboard/tabs/tab_owner' %>
     </div>
   </div>
 
-  <% end %>
-
 </div>
-
