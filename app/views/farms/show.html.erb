@@ -1,6 +1,21 @@
+
+<%= render 'components/show-banner'%>
+
+
 <div class="container">
-<h1>Show Page for a Single Farm</h1>
-<%#= link_to "create", farm_bookins_path(dose), method: :post, class: "btn-treehouse" %>
-<%= @farm.name %>
-<%= render 'bookings/form' %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <h3><%= @farm.name %><%= image_tag('avatar-placeholder.png', class: "avatar-large")%></h3>
+        <p> <%= @farm.location %> <%= @farm.country %></p>
+        <p><%= @farm.price %> USD</p>
+        <p><%= @farm.description %></p>
+      </div>
+
+
+      <div class="col-md-4">
+        <h3> Booking </h3>
+        <%= render 'bookings/form' %>
+      </div>
+  </div>
 </div>
