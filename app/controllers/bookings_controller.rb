@@ -11,9 +11,9 @@ class BookingsController < ApplicationController
     else
       render 'farm/show'
     end
-    
+
   end
-  
+
   def edit
     @booking = Booking.find(params[:id])
     render :edit
@@ -30,7 +30,6 @@ class BookingsController < ApplicationController
     @booking.update(status: "Accepted")
     @js = "GO"
    redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
-   raise
   end
 
   def declined
