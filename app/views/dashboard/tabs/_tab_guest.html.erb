@@ -2,7 +2,7 @@
   <% @booking_guest.each do |booking| %>
 
   <div class="booking">
-    <%= image_tag('farm-placeholder.jpeg', class: "img-small") %>
+    <%= cl_image_tag(booking.farm.photo, class: "img-small") %>
     <div class="booking-body">
       <p><strong><%= "Booking from #{booking.start_date} to #{booking.end_date}"%></strong></p>
       <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
