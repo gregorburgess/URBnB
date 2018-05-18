@@ -1,0 +1,11 @@
+<div class="cards-container">
+   <div class="row">
+    <div class="col-xs-3 col-sm-4">
+      <%= simple_form_for([@farm,@booking]) do |f| %>
+      <%= f.input :start_date, placeholder: "start date" %>
+      <%= f.input :end_date, placeholder: "end date" %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>

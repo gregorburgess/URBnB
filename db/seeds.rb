@@ -102,7 +102,7 @@ farm3.save!
 
 15.times do
   booking = Booking.new(
-    approved: rand(2) == 1 ? true : false,
+    status: ["Pending", "Accepted", "Declined"].sample,
     review: "slkjlskjdflksdjflkjslfdkjsdlfkjsdlkfjsdlkfjlsdkjflskjdflksdjfljsldkjflksjdflkjsdlfk",
     rating:  (0..5).to_a.sample,
     total_price: (100..250).to_a.sample,

@@ -1,6 +1,10 @@
 class FarmsController < ApplicationController
   before_action :set_farm, only: [:show, :edit, :update, :destroy]
 
+  def show
+  # empty on purpouse
+  @booking = Booking.new
+  end
   def index
     @farms = Farm.all
     @form_title = "Farm Index Page"
