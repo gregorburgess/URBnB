@@ -1,0 +1,21 @@
+<div>
+    <div>
+    <%= render 'components/show-banner'%>
+    </div>
+
+    <div>
+    <h3><%= @farm.name %><%= image_tag('avatar-placeholder.png', class: "avatar-large")%></h3>
+    <p> <%= @farm.user.email%><%= @farm.location %> <%= @farm.country %></p>
+    <p><%= @farm.price %> USD</p>
+    </div>
+
+    <div>
+      <p><%= @farm.description %></p>
+    </div>
+
+    <div>
+    <!-- Hey Daniel, put the form here for now if you want! -->
+    </div>
+
+  <p>Show Page! Find me in app/views/farms/show.html.erb</p>
+</div>

@@ -3,8 +3,12 @@ class FarmsController < ApplicationController
 
   def index
     @farms = Farm.all
-    @form_title = "Farm Inded Page"
+    @form_title = "Farm Index Page"
     @form_myflat = false
+  end
+
+  def show
+    @farm = Farm.find(params[:id])
   end
 
   def myfarms
