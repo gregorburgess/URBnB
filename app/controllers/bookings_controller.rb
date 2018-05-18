@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @farm = Farm.find(params[:farm_id])
     @user = current_user
-    @total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
+    @booking.total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
     @booking.user = @user
     @booking.farm = @farm
     if @booking.save
