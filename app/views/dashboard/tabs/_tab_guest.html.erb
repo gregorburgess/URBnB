@@ -8,7 +8,9 @@
       <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
     </div>
     <div class="booking-status">
-      <p class="status pending">Pending</p>
+      <%status_erb = booking.status%>
+
+      <p class="<%= "status #{status_erb.downcase}" %>"><%= status_erb %></p>
       <p class="price"><%= booking.total_price %> USD</p>
     </div>
     <div class="booking-review">
