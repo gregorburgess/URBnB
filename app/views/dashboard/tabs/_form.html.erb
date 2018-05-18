@@ -1,0 +1,11 @@
+<p>this is my form</p>
+
+<% @booking = booking %>
+
+
+<%= form_for @booking, as: :booking, url: booking_path(@booking), method: :patch do |f| %>
+  <%= f.text_field :rating %>
+  <%= f.text_field :review %>
+  <%= f.button :submit %>
+<% end %>
+
