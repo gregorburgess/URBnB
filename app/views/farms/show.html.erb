@@ -7,17 +7,14 @@
     <div class="row">
       <div class="col-md-8">
         <h3><%= @farm.name %><%= image_tag('avatar-placeholder.png', class: "avatar-large")%></h3>
-        <p> <%= @farm.user.email%><%= @farm.location %> <%= @farm.country %></p>
+        <p> <%= @farm.location %> <%= @farm.country %></p>
         <p><%= @farm.price %> USD</p>
         <p><%= @farm.description %></p>
       </div>
 
 
-
-
-
       <div class="col-md-4">
-        <p> Booking </p>
+        <h3> Booking </h3>
       </div>
     </div>
 
