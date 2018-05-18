@@ -13,36 +13,17 @@
     </div>
     <div class="booking-review">
       <p class="review-rating"><i class="far fa-star"></i></p>
-      <button class="btn btn-primary" data-toggle="modal" data-target="#largeModal">Add/Edit Review</button>
+
+      <button class="btn btn-primary" data-toggle="modal" data-target= <%= "#largeModal#{booking.id}"%>>Add/Edit Review</button>
     </div>
+
   </div>
 
 
   <!-- Large modal -->
 
-  <div id="largeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Your trip's review</h4>
-        </div>
-        <% @booking = booking %>
-        <%= simple_form_for @booking, as: :booking, url: booking_path(@booking), method: :patch do |f| %>
-          <div class="modal-body">
-            <div class="form group">
-              <%= f.input :rating, label: 'Your rating'%>
-            </div>
-            <div class="form-group">
-              <%= f.input :review, label: 'Your review' %>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <%= f.button :submit, "OK", class:"btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <div id=<%= "largeModal#{booking.id}"%> class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+    <%= render 'dashboard/tabs/form', booking: booking %>
   </div>
 
   <% end %>

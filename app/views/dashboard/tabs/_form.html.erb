@@ -1,11 +1,22 @@
-<p>this is my form</p>
 
-<% @booking = booking %>
-
-
-<%= form_for @booking, as: :booking, url: booking_path(@booking), method: :patch do |f| %>
-  <%= f.text_field :rating %>
-  <%= f.text_field :review %>
-  <%= f.button :submit %>
-<% end %>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Your trip's review</h4>
+    </div>
+    <% @booking = booking %>
+    <%= simple_form_for @booking, as: :booking, url: booking_path(@booking), method: :patch do |f| %>
+    <div class="modal-body">
+      <div class="form group">
+        <%= f.input :rating, label: 'Your rating'%>
+      </div>
+      <div class="form-group">
+        <%= f.input :review, label: 'Your review' %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.button :submit, "OK", class:"btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
 

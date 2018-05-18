@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
 
 
+  def edit
+    @booking = Booking.find(params[:id])
+    render :edit
+  end
+
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
