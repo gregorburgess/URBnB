@@ -12,11 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :bookings, only: [:destroy] do
-    member do
-      patch "approved"
-    end
-  end
+  resources :bookings, only: [:edit, :update, :destroy]
 
   get '/dashboard', to: "dashboard#index"
 end

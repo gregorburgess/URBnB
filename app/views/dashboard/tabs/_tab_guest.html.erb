@@ -8,15 +8,30 @@
       <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
     </div>
     <div class="booking-status">
-      <p class="status pending">Pending</p>
+      <%status_erb = booking.status%>
+
+      <p class="<%= "status #{status_erb.downcase}" %>"><%= status_erb %></p>
       <p class="price"><%= booking.total_price %> USD</p>
     </div>
     <div class="booking-review">
-      <p class="review-rating"><i class="far fa-star"></i></p>
-      <p class="review-link">Show my review </p>
+
+      <p class="review-rating">
+        <% booking.rating.times do %>
+        <i class="far fa-star"></i>
+        <% end %>
+      </p>
+
+      <button class="btn btn-primary" data-toggle="modal" data-target= <%= "#largeModal#{booking.id}"%>>Add/Edit Review</button>
     </div>
+
+  </div>
+
+
+  <!-- Large modal -->
+
+  <div id=<%= "largeModal#{booking.id}"%> class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+    <%= render 'dashboard/tabs/form', booking: booking %>
   </div>
 
   <% end %>
-
 </div>
