@@ -4,6 +4,7 @@ class FarmsController < ApplicationController
   def show
   # empty on purpouse
   @booking = Booking.new
+  raise
   end
   def index
     @farms = Farm.all
