@@ -14,7 +14,12 @@
       <p class="price"><%= booking.total_price %> USD</p>
     </div>
     <div class="booking-review">
-      <p class="review-rating"><i class="far fa-star"></i></p>
+
+      <p class="review-rating">
+        <% booking.rating.times do %>
+        <i class="far fa-star"></i>
+        <% end %>
+      </p>
 
       <button class="btn btn-primary" data-toggle="modal" data-target= <%= "#largeModal#{booking.id}"%>>Add/Edit Review</button>
     </div>
