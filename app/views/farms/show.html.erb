@@ -1,21 +1,25 @@
-<div>
-    <div>
-    <%= render 'components/show-banner'%>
+
+<%= render 'components/show-banner'%>
+
+
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <h3><%= @farm.name %><%= image_tag('avatar-placeholder.png', class: "avatar-large")%></h3>
+        <p> <%= @farm.user.email%><%= @farm.location %> <%= @farm.country %></p>
+        <p><%= @farm.price %> USD</p>
+        <p><%= @farm.description %></p>
+      </div>
+
+
+
+
+
+      <div class="col-md-4">
+        <p> Booking </p>
+      </div>
     </div>
 
-    <div>
-    <h3><%= @farm.name %><%= image_tag('avatar-placeholder.png', class: "avatar-large")%></h3>
-    <p> <%= @farm.user.email%><%= @farm.location %> <%= @farm.country %></p>
-    <p><%= @farm.price %> USD</p>
-    </div>
-
-    <div>
-      <p><%= @farm.description %></p>
-    </div>
-
-    <div>
-    <!-- Hey Daniel, put the form here for now if you want! -->
-    </div>
-
-  <p>Show Page! Find me in app/views/farms/show.html.erb</p>
+<!--   <p>Show Page! Find me in app/views/farms/show.html.erb</p> -->
 </div>
