@@ -11,4 +11,9 @@ class DashboardController < ApplicationController
     @owner = true
     render :index
   end
+
+  def review
+    @booking = Booking.find(params[:id])
+    render :editreview
+  end
 end

@@ -20,8 +20,7 @@
         <i class="far fa-star"></i>
         <% end %>
       </p>
-
-      <button class="btn btn-primary" data-toggle="modal" data-target= <%= "#largeModal#{booking.id}"%>>Add/Edit Review</button>
+      <%= link_to "review", dashboard_review_path(booking.id), method: :patch, class: "btn btn-primary" %>
     </div>
 
   </div>
@@ -29,9 +28,11 @@
 
   <!-- Large modal -->
 
-  <div id=<%= "largeModal#{booking.id}"%> class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+  <div id="<%="mod#{booking.id}"%>" class="modal fade bs-example-modal-lg center" tabindex="-1" role="dialog">
     <%= render 'dashboard/tabs/form', booking: booking %>
   </div>
-
+</div>
   <% end %>
 </div>
+

@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: "dashboard#index"
   get '/dashboard/owner', to: "dashboard#index_owner", as: :dashboard_owner
-  patch '/dashboard/approve/:id', to: "bookings#approve"
-  patch '/dashboard/declined/:id', to: "bookings#declined"
+  patch '/dashboard/approve/:id', to: "bookings#approve", as: :dashboard_approve
+  patch '/dashboard/declined/:id', to: "bookings#declined", as: :dashboard_decline
+  patch '/dashboard/review/:id', to: "dashboard#review", as: :dashboard_review
 
 end
