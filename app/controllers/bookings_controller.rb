@@ -25,6 +25,20 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "Accepted")
+    @js = "GO"
+   redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
+   raise
+  end
+
+  def declined
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "Declined")
+    redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
+  end
+
   private
 
   def booking_params

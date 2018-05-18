@@ -4,21 +4,23 @@
 <div class="tabs-container">
   <h2>BOOKING DASHBOARD</h2>
   <div class="tabs">
-    <a class="tab active" href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">
+    <a class="<%=  "tab #{@owner ? "" : "active"}"%>" id="tabx1" href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">
       <h3>My bookings</h3>
     </a>
-    <a class="tab" href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">
+    <a class="<%=  "tab #{@owner ? "active" : ""}"%>" id="tabx2" href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">
       <h3>My guests</h3>
     </a>
   </div>
 
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="tab1">
+    <div role="tabpanel" class="<%=  "tab-pane #{@owner ? "" : "active"}"%>" id="tab1">
       <%= render 'dashboard/tabs/tab_guest' %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="tab2">
+    <div role="tabpanel" class="<%=  "tab-pane #{@owner ? "active" : ""}"%>" id="tab2">
       <%= render 'dashboard/tabs/tab_owner' %>
     </div>
   </div>
 
+
 </div>
+

@@ -1,4 +1,4 @@
 import "bootstrap";
 
-import { loadNavTab } from '../components/tab';
+import { loadNavTab, loadNavOwner } from '../components/tab';
 loadNavTab();
