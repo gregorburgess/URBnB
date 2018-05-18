@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_18_032312) do
+ActiveRecord::Schema.define(version: 2018_05_18_074002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.text "review"
-    t.integer "rating"
+    t.integer "rating", default: 0
     t.integer "total_price"
     t.date "start_date"
     t.date "end_date"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_05_18_032312) do
     t.bigint "farm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.string "status", default: "Pending"
     t.index ["farm_id"], name: "index_bookings_on_farm_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
