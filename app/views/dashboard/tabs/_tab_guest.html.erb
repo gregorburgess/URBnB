@@ -13,10 +13,18 @@
     </div>
     <div class="booking-review">
       <p class="review-rating"><i class="far fa-star"></i></p>
-      <p class="review-link">Show my review </p>
+
+      <button class="btn btn-primary" data-toggle="modal" data-target= <%= "#largeModal#{booking.id}"%>>Add/Edit Review</button>
     </div>
+
+  </div>
+
+
+  <!-- Large modal -->
+
+  <div id=<%= "largeModal#{booking.id}"%> class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+    <%= render 'dashboard/tabs/form', booking: booking %>
   </div>
 
   <% end %>
-
 </div>
