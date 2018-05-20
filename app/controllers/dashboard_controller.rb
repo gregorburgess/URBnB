@@ -14,6 +14,13 @@ class DashboardController < ApplicationController
 
   def review
     @booking = Booking.find(params[:id])
-    render :editreview
+  #  render :editreview
+
+    respond_to do |format|
+
+        format.js  # <-- idem
+      end
+
   end
+
 end

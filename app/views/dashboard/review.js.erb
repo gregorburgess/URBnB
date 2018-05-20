@@ -1,0 +1,37 @@
+
+
+
+console.log("i am here sddfsdfsfddfsfdsd")
+
+console.log("l'id du booking est <%= @booking.id %>")
+
+
+
+$('#myModal').modal('show');
+
+
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('myModal');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+
+
+refreshForm('<%= j render "dashboard/tabs/form", booking: @booking %>');
+
+
+document.querySelectorAll(".btn-close").forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+   $('#myModal').modal('hide');
+ });
+});
+
+
+document.querySelectorAll(".btn-close").forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+   $('#myModal').modal('hide');
+ });
+});
+
+
+
