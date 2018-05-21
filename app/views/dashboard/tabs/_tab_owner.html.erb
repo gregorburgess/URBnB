@@ -25,8 +25,8 @@
 
      <% if booking.status == "Pending"  %>
      <% @booking = booking %>
-     <%= link_to "Approved", "/dashboard/approve/#{booking.id}", method: :patch, class: "btn btn-primary" %>
-     <%= button_to "Declined", "/dashboard/declined/#{booking.id}", method: :patch, class: "btn btn-primary" %>
+     <%= link_to "Approved", dashboard_approve_path(booking.id), method: :patch, remote: true, class: "btn btn-primary" %>
+     <%= button_to "Declined", "/dashboard/declined/#{booking.id}", method: :patch, remote: true, class: "btn btn-primary" %>
      <% end %>
    </div>
  </div>

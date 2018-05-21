@@ -1,0 +1,19 @@
+// SHOW MODAL
+$('#myModal').modal('show');
+
+// FEED MODAL WITH FORM RELATED TO CURRENT BOOKING
+  const newReviewForm = document.getElementById('myModal');
+  const innerHTML = '<%= j render "dashboard/tabs/form", booking: @booking %>'
+  newReviewForm.innerHTML = innerHTML;
+
+
+// ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL
+document.querySelectorAll(".btn-close").forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+   $('#myModal').modal('hide');
+ });
+});
+
+
+
+

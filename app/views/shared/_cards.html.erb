@@ -3,7 +3,7 @@
    <div class="row">
 
       <%  @farms.each do |farm| %>
-     <div class="col-xs-3 col-sm-4">
+     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path farm.photo, height: 300, width: 400, crop: :fill %>');">
          <div class="card-category"><%= farm.description %>
          </div>
@@ -11,9 +11,8 @@
           <h2><%=farm.name%></h2>
           <p>$<%=farm.price%>per night</p>
           </div>
-             <img class="card-user" src="https://kitt.lewagon.cplaceholder/users/tgenaitay">
           <a class="card-link" href="#" ></a>
-          <%= link_to farm.description, farm_path(farm), :class=> "card-link" %>
+          <%= link_to "", farm_path(farm), :class=> "card-link" %>
       </div>
     </div>
        <% end %>

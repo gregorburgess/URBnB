@@ -1,7 +1,7 @@
 <div class="bookings">
   <% @booking_guest.each do |booking| %>
 
-  <div class="booking">
+  <div class="booking" id="booking<%= booking.id%>">
     <%= cl_image_tag(booking.farm.photo, class: "img-small") %>
     <div class="booking-body">
       <p><strong><%= "Booking from #{booking.start_date} to #{booking.end_date}"%></strong></p>
@@ -20,18 +20,16 @@
         <i class="far fa-star"></i>
         <% end %>
       </p>
-
-      <button class="btn btn-primary" data-toggle="modal" data-target= <%= "#largeModal#{booking.id}"%>>Add/Edit Review</button>
+      <%= link_to "review", dashboard_review_path(booking.id), remote: true, method: :patch, class: "btn btn-primary"  %>
     </div>
 
   </div>
 
-
-  <!-- Large modal -->
-
-  <div id=<%= "largeModal#{booking.id}"%> class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
-    <%= render 'dashboard/tabs/form', booking: booking %>
-  </div>
-
   <% end %>
+</div>
+
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade " tabindex="-1">
+
 </div>

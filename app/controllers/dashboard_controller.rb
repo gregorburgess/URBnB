@@ -11,4 +11,12 @@ class DashboardController < ApplicationController
     @owner = true
     render :index
   end
+
+  def review
+    @booking = Booking.find(params[:id])
+    respond_to do |format|
+        format.js  # <-- idem
+    end
+  end
+
 end

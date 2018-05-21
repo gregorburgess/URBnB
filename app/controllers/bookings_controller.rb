@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @farm = Farm.find(params[:farm_id])
     @user = current_user
-    @total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
+    @booking.total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
     @booking.user = @user
     @booking.farm = @farm
     if @booking.save
@@ -22,13 +22,12 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to dashboard_path
+
   end
 
   def approve
     @booking = Booking.find(params[:id])
     @booking.update(status: "Accepted")
-    @js = "GO"
    redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
   end
 
@@ -36,6 +35,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(status: "Declined")
     redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
+  end
+
+  def review
+    @booking = Booking.find(params[:id])
   end
 
   private
