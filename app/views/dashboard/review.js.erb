@@ -1,25 +1,13 @@
-
-
-
-console.log("i am here sddfsdfsfddfsfdsd")
-
-console.log("l'id du booking est <%= @booking.id %>")
-
-
-
+// SHOW MODAL
 $('#myModal').modal('show');
 
-
-function refreshForm(innerHTML) {
+// FEED MODAL WITH FORM RELATED TO CURRENT BOOKING
   const newReviewForm = document.getElementById('myModal');
+  const innerHTML = '<%= j render "dashboard/tabs/form", booking: @booking %>'
   newReviewForm.innerHTML = innerHTML;
-}
 
 
-
-refreshForm('<%= j render "dashboard/tabs/form", booking: @booking %>');
-
-
+// ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL
 document.querySelectorAll(".btn-close").forEach((btn) => {
   btn.addEventListener("click", (event) => {
    $('#myModal').modal('hide');
