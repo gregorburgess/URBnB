@@ -25,9 +25,9 @@ class FarmsController < ApplicationController
   end
 
   def create
-    farm = Farm.new(farm_params)
-    farm.user = current_user
-    if farm.save
+    @farm = Farm.new(farm_params)
+    @farm.user = current_user
+    if @farm.save
       redirect_to farms_path
     else
       render 'farms/new'
