@@ -5,6 +5,15 @@ class FarmsController < ApplicationController
     @farms = Farm.all
     @form_title = "Farm Index Page"
     @form_myflat = false
+    @farms = Farm.where.not(latitude: nil, longitude: nil)
+
+    @markers = @farms.map do |farm|
+      {
+        lat: farm.latitude,
+        lng: farm.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def show

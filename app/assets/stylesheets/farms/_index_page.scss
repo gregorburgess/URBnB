@@ -1,0 +1,24 @@
+// .flex-box{
+// display: flex;
+// justify-content: space-around;
+// }
+// .cards{
+//   flex: 0 0 40%;
+// }
+
+// #map{
+//   flex: 0 0 40%;
+// }
+.main-container {
+  display: flex;
+  margin: 0;
+}
+#map {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
+.cards-container{
+  flex-grow:1;
+}
