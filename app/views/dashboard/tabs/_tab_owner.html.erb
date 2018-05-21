@@ -21,8 +21,8 @@
      <p class="price"><%= booking.total_price %> USD</p>
    </div>
    <div class="booking-feedback<%=booking.id%> <%= booking.status == "Pending" ? "" : "hidden"  %>">
-     <%= link_to "Approved", dashboard_approve_path(booking.id), method: :patch, remote: true, class: "btn btn-primary btn-feedback" %>
-     <%= link_to "Declined", dashboard_decline_path(booking.id), method: :patch, remote: true, class: "btn btn-primary btn-feedback" %>
+     <%= link_to "Approved", dashboard_approve_path(booking.id), method: :patch, remote: true, class: "btn btn-primary btn-feedback btn-sm" %>
+     <%= link_to "Declined", dashboard_decline_path(booking.id), method: :patch, remote: true, class: "btn btn-primary btn-feedback btn-sm" %>
    </div>
  </div>
 
