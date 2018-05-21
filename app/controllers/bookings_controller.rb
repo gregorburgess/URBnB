@@ -33,10 +33,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  def declined
+  def decline
     @booking = Booking.find(params[:id])
     @booking.update(status: "Declined")
-    redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
+    respond_to do |format|
+        format.js  # <-- idem
+    end
   end
 
   def review

@@ -1,0 +1,9 @@
+divStatus = document.getElementById('statusBooking<%=@booking.id%>')
+divStatus.classList.remove('pending')
+divStatus.classList.add('declined')
+divStatus.innerText = "Declined"
+
+document.querySelectorAll(".booking-feedback<%=@booking.id%>").forEach((btn) => {
+  console.log(btn)
+  btn.classList.add('hidden');
+});
