@@ -13,4 +13,11 @@ class Farm < ApplicationRecord
   validates :user, presence: true
   validates :photo, presence: true
 
+  # Adds search functionality to the index page search bar
+  include PgSearch
+  pg_search_scope :search_by_farm_attributes,
+    against: [ :name, :description, :city, :country, :address],
+    using: {
+      tsearch: { prefix: true } # <-- for eg now `london frm` will return something!
+    }
 end

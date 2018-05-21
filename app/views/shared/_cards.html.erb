@@ -2,7 +2,29 @@
  <div class="cards-container">
    <div class="row">
 
-      <%  @farms.each do |farm| %>
+    <% query = params[:query] %>
+
+    <% if query.present? %>
+      <% filtered_farms = Farm.search_by_farm_attributes(query) %>
+
+      <%  filtered_farms.each do |farm| %>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path farm.photo, height: 300, width: 400, crop: :fill %>');">
+             <div class="card-category"><%= farm.description %>
+             </div>
+              <div class="card-description">
+              <h2><%=farm.name%></h2>
+              <p>$<%=farm.price%>per night</p>
+              </div>
+              <a class="card-link" href="#" ></a>
+              <%= link_to "", farm_path(farm), :class=> "card-link" %>
+          </div>
+        </div>
+      <% end %>
+
+    <% else %>
+
+    <%  @farms.each do |farm| %>
      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path farm.photo, height: 300, width: 400, crop: :fill %>');">
          <div class="card-category"><%= farm.description %>
@@ -15,6 +37,7 @@
           <%= link_to "", farm_path(farm), :class=> "card-link" %>
       </div>
     </div>
-       <% end %>
-   </div>
- </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

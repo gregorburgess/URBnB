@@ -2,7 +2,7 @@
 <h1><%= @form_title %></h1>
 
 <div class="urb-form-container">
-  <%= form_tag farms_path, method: :get do %>
+  <%= form_tag farms_path, class: @form_myflat ? "hidden" : "visible", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
@@ -18,10 +18,11 @@
     <%= render 'shared/cards', class: "cards" %>
       <div
         id="map"
-        style="width: 100%;
+        style="width: 100%, border-radius: 15px;
         margin-top: 14px;
         margin-right: 30px;
         height: 600px;"
+
         data-markers="<%= @markers.to_json %>"
       >
       </div>
