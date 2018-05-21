@@ -10,4 +10,8 @@ class Booking < ApplicationRecord
   def declined
     status = "Declined"
   end
+
+  def review_ready?
+    status == "Accepted" && end_date <= Time.now
+  end
 end

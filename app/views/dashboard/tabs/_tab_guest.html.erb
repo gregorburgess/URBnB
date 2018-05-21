@@ -16,8 +16,11 @@
     <div class="booking-review text-center">
 
         <% if booking.review.nil? %>
-          <p class="review-rating" >No review yet</p>
-          <%= link_to "Add", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary btn-sm"  %>
+
+
+          <% if booking.review_ready? %>
+          <%= link_to "Add a review", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary btn-sm"  %>
+          <% end %>
         <% else %>
         <p class="review-rating" >
           <% booking.review.rating.times do %>
