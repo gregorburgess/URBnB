@@ -30,18 +30,24 @@ userGuest4.save!
 
 
 # Farms
+15.times do
+farm = Farm.new(
+  name: Faker::LordOfTheRings.location,
+  description: "Description of the farm #1",
+  address: "#{Faker::Address.state}, USA",
+  city: "city",
+  price: (34..250).to_a.sample,
+  country: "USA")
+farm.user = User.find_by_id((User.ids).sample)
+farm.save!
+end
+# farm2 = Farm.new(name: "Farm #2", description: "Description of the farm #2", address: "#{Faker::Address.state}, USA", city: "city", price: 100,  country: "USA")
+# farm2.user = userOwner2
+# farm2.save!
 
-farm1 = Farm.new(name: "Farm #1", description: "Description of the farm #1", location: "Location #1", city: "city", price: 100, country: "US")
-farm1.user = userOwner1
-farm1.save!
-
-farm2 = Farm.new(name: "Farm #2", description: "Description of the farm #2", location: "Location #2", city: "city", price: 100,  country: "US")
-farm2.user = userOwner2
-farm2.save!
-
-farm3 = Farm.new(name: "Farm #3", description: "Description of the farm #3", location: "Location #3", city: "city", price: 100,  country: "US")
-farm3.user = userOwner1
-farm3.save!
+# farm3 = Farm.new(name: "Farm #3", description: "Description of the farm #3", address: "#{Faker::Address.state}, USA", city: "city", price: 100,  country: "USA")
+# farm3.user = userOwner1
+# farm3.save!
 
 
 #Booking Farm 1
