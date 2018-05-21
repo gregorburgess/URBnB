@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new()
+    @booking.start_date = Date.strptime(params[:booking][:start_date], "%m/%d/%Y")
+    @booking.end_date  = Date.strptime(params[:booking][:end_date], "%m/%d/%Y")
     @farm = Farm.find(params[:farm_id])
     @user = current_user
     @booking.total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
@@ -30,24 +32,24 @@ class BookingsController < ApplicationController
     @booking.update(status: "Accepted")
     respond_to do |format|
         format.js  # <-- idem
+      end
     end
-  end
 
-  def decline
-    @booking = Booking.find(params[:id])
-    @booking.update(status: "Declined")
-    respond_to do |format|
+    def decline
+      @booking = Booking.find(params[:id])
+      @booking.update(status: "Declined")
+      respond_to do |format|
         format.js  # <-- idem
+      end
+    end
+
+    def review
+      @booking = Booking.find(params[:id])
+    end
+
+    private
+
+    def booking_params
+      params.require(:booking).permit(:start_date, :end_date)
     end
   end
-
-  def review
-    @booking = Booking.find(params[:id])
-  end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(:rating, :review, :start_date, :end_date)
-  end
-end
