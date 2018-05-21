@@ -1,8 +1,5 @@
-console.log("lkjkjmkl")
-
 // SHOW MODAL
 $('#myModal').modal('show');
-
 
 
 function refreshForm(innerHTML) {
@@ -10,17 +7,12 @@ function refreshForm(innerHTML) {
   newReviewForm.innerHTML = innerHTML;
 }
 
-
-
-<% if @review.errors.any? %>
-  refreshForm('<%= j render "reviews/form", booking: @booking, review: @review %>');
-<% else %>
-  refreshForm('<%= j render "reviews/form", booking: @booking, review: Review.new %>');
-<% end %>
+refreshForm('<%= j render "reviews/form", booking: @booking, review: @review %>');
 
 // ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL
 document.querySelectorAll(".btn-close").forEach((btn) => {
   btn.addEventListener("click", (event) => {
    $('#myModal').modal('hide');
+   $('.modal-backdrop').remove()
  });
 });

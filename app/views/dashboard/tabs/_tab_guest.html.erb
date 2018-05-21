@@ -17,12 +17,12 @@
 
         <% if booking.review.nil? %>
 
-
+          <p class="review-rating" id="rating-booking<%= booking.id%>" ></p>
           <% if booking.review_ready? %>
           <%= link_to "Add a review", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary btn-sm"  %>
           <% end %>
         <% else %>
-        <p class="review-rating" >
+        <p class="review-rating" id="rating-booking<%= booking.id%>" >
           <% booking.review.rating.times do %>
             <i class="far fa-star"></i>
           <% end %>
