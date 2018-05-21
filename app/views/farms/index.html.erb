@@ -1,5 +1,16 @@
 <!-- <div class="container"> -->
 <h1><%= @form_title %></h1>
+
+<div class="urb-form-container">
+  <%= form_tag farms_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Farm!"
+    %>
+  <% end %>
+</div>
+
 <%= button_to "Add a new farm", new_farm_path, method: :get,  class: @form_myflat ? "btn btn-primary" : "hidden" %>
 
 
@@ -9,6 +20,7 @@
         id="map"
         style="width: 100%;
         margin-top: 14px;
+        margin-right: 30px;
         height: 600px;"
         data-markers="<%= @markers.to_json %>"
       >
