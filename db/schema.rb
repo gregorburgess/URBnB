@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_075939) do
+ActiveRecord::Schema.define(version: 2018_05_21_093923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_075939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "Pending"
-    t.bigint "review_id"
     t.index ["farm_id"], name: "index_bookings_on_farm_id"
-    t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -73,7 +71,6 @@ ActiveRecord::Schema.define(version: 2018_05_21_075939) do
   end
 
   add_foreign_key "bookings", "farms"
-  add_foreign_key "bookings", "reviews"
   add_foreign_key "bookings", "users"
   add_foreign_key "farms", "users"
   add_foreign_key "reviews", "bookings"
