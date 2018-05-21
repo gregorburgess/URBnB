@@ -12,7 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: [:edit, :update, :destroy]
+  resources :bookings, only: [:edit, :update, :destroy] do
+
+    resource :reviews, only: [:new, :create]
+
+  end
+
+   resources :reviews, only: [:edit, :update]
 
   get '/dashboard', to: "dashboard#index"
   patch '/dashboard/review/:id', to: "dashboard#review", as: :dashboard_review

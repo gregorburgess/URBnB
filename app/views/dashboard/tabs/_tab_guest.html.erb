@@ -16,11 +16,17 @@
     <div class="booking-review">
 
       <p class="review-rating">
-        <% booking.rating.times do %>
-        <i class="far fa-star"></i>
+        <% if booking.review.nil? %>
+          <p>No review yet</p>
+          <%= link_to "Add", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary"  %>
+        <% else %>
+          <% booking.review.rating.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+           <%= link_to "Edit", edit_review_path(booking.review.id), remote: true, class: "btn btn-primary"  %>
         <% end %>
       </p>
-      <%= link_to "review", dashboard_review_path(booking.id), remote: true, method: :patch, class: "btn btn-primary"  %>
+
     </div>
 
   </div>
