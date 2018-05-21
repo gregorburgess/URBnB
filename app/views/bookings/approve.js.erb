@@ -1,0 +1,10 @@
+console.log("je suis la bro");
+divStatus = document.getElementById('statusBooking<%=@booking.id%>')
+divStatus.classList.remove('pending')
+divStatus.classList.add('accepted')
+divStatus.innerText = "Approved"
+
+document.querySelectorAll(".booking-feedback<%=@booking.id%>").forEach((btn) => {
+  console.log(btn)
+  btn.classList.add('hidden');
+});

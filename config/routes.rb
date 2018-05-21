@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:edit, :update, :destroy]
 
   get '/dashboard', to: "dashboard#index"
-  patch '/dashboard/review/:id', to: "dashboard#review", as: :dashboard_review
   get '/dashboard/owner', to: "dashboard#index_owner", as: :dashboard_owner
+
+  patch '/dashboard/review/:id', to: "dashboard#review", as: :dashboard_review
   patch '/dashboard/approve/:id', to: "bookings#approve", as: :dashboard_approve
   patch '/dashboard/declined/:id', to: "bookings#declined", as: :dashboard_decline
 

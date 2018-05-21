@@ -28,7 +28,9 @@ class BookingsController < ApplicationController
   def approve
     @booking = Booking.find(params[:id])
     @booking.update(status: "Accepted")
-   redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
+    respond_to do |format|
+        format.js  # <-- idem
+    end
   end
 
   def declined

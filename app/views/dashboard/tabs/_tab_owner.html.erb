@@ -16,18 +16,13 @@
     <div class="booking-status">
      <%status_erb = booking.status%>
 
-     <p class="<%= "status #{status_erb.downcase}" %>"><%= status_erb %></p>
+     <p id= <%= "statusBooking#{booking.id}"%> class="<%= "status #{status_erb.downcase}" %>"><%= status_erb %></p>
 
      <p class="price"><%= booking.total_price %> USD</p>
    </div>
-   <div class="booking-review">
-
-
-     <% if booking.status == "Pending"  %>
-     <% @booking = booking %>
-     <%= link_to "Approved", dashboard_approve_path(booking.id), method: :patch, remote: true, class: "btn btn-primary" %>
-     <%= button_to "Declined", "/dashboard/declined/#{booking.id}", method: :patch, remote: true, class: "btn btn-primary" %>
-     <% end %>
+   <div class="booking-feedback<%=booking.id%> <%= booking.status == "Pending" ? "" : "hidden"  %>">
+     <%= link_to "Approved", dashboard_approve_path(booking.id), method: :patch, remote: true, class: "btn btn-primary btn-feedback" %>
+     <%= link_to "Declined", dashboard_decline_path(booking.id), method: :patch, remote: true, class: "btn btn-primary btn-feedback" %>
    </div>
  </div>
 
