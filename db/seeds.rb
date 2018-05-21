@@ -113,8 +113,6 @@ end
 15.times do
   booking = Booking.new(
     status: ["Pending", "Accepted", "Declined"].sample,
-    review: "slkjlskjdflksdjflkjslfdkjsdlfkjsdlkfjsdlkfjlsdkjflskjdflksdjfljsldkjflksjdflkjsdlfk",
-    rating:  (1..5).to_a.sample,
     total_price: (100..250).to_a.sample,
     start_date: Faker::Date.backward(5),
     end_date: Faker::Date.forward(18),
