@@ -1,18 +1,16 @@
 <!-- <div class="container"> -->
 <h1><%= @form_title %></h1>
+<%= button_to "Add a new farm", new_farm_path, method: :get,  class: @form_myflat ? "btn btn-primary" : "hidden" %>
+
 <div class="main-container">
-
-<%#= button_to "Add a new farm", new_farm_path, method: :get,  class: @form_myflat ? "btn btn-primary" : "hidden" %>
-
-    <%= render 'shared/cards', class: "cards" %>
-
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-></div>
+  <%= render 'shared/cards', class: "cards" %>
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+  >
+  </div>
 
 </div>
 <!-- </div> -->

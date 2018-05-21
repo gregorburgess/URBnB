@@ -22,9 +22,17 @@ class FarmsController < ApplicationController
   end
 
   def myfarms
-    @farms = Farm.where(user: current_user)
+    @farms = Farm.where(user: current_user).where.not(latitude: nil, longitude: nil)
     @form_title = "My farms"
     @form_myflat = true
+
+     @markers = @farms.map do |farm|
+      {
+        lat: farm.latitude,
+        lng: farm.longitude,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
     render :index
   end
 
