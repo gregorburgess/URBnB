@@ -30,7 +30,7 @@ class FarmsController < ApplicationController
       {
         lat: farm.latitude,
         lng: farm.longitude,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        infoWindow: { content: render_to_string(partial: "/farms/map_box", locals: { farm: farm }) }
       }
     end
     render :index
