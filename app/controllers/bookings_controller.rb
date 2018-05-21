@@ -39,7 +39,6 @@ class BookingsController < ApplicationController
 
   def review
     @booking = Booking.find(params[:id])
-    raise
   end
 
   private
