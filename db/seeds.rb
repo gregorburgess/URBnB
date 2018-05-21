@@ -29,12 +29,16 @@ userGuest4 = User.new(email: "guest4@e.e", password: "password")
 userGuest4.save!
 
 
+photo_url = "https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=187b9c5c4cab96d11794528ed75ce0d4&auto=format&fit=crop&w=2552&q=80"
+
+
 # Farms
 15.times do
 farm = Farm.new(
   name: Faker::LordOfTheRings.location,
   description: "Description of the farm #1",
   address: "#{Faker::Address.state}, USA",
+  remote_photo_url: photo_url,
   city: "city",
   price: (34..250).to_a.sample,
   country: "USA")
@@ -110,7 +114,7 @@ end
   booking = Booking.new(
     status: ["Pending", "Accepted", "Declined"].sample,
     review: "slkjlskjdflksdjflkjslfdkjsdlfkjsdlkfjsdlkfjlsdkjflskjdflksdjfljsldkjflksjdflkjsdlfk",
-    rating:  (0..5).to_a.sample,
+    rating:  (1..5).to_a.sample,
     total_price: (100..250).to_a.sample,
     start_date: Faker::Date.backward(5),
     end_date: Faker::Date.forward(18),
@@ -121,11 +125,5 @@ end
 end
 
 
-photo_url = "https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=187b9c5c4cab96d11794528ed75ce0d4&auto=format&fit=crop&w=2552&q=80"
-
-Farm.all.each do |farm|
-  farm.remote_photo_url =  photo_url
-  farm.save!
-end
 
 
