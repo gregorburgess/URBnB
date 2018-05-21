@@ -1,26 +1,24 @@
-console.log("lkjkjmkl")
-
 // SHOW MODAL
 $('#myModal').modal('show');
 
+// FUNCTION TO MODIFY DOM
 function refreshForm(innerHTML) {
   const newReviewForm = document.getElementById('myModal');
   newReviewForm.innerHTML = innerHTML;
 }
 
-
+// CHECK IF THE REVIEW IS IN ERROR (Y : RENDER THE FORM + ERROR, N : UPDATE THE DOM)
 <% if @review.errors.any? %>
   refreshForm('<%= j render "reviews/form", booking: @booking, review: @review %>');
 <% else %>
-  console.log("--------")
-  console.log(<%= @review.rating %>)
-   innerHTML = ""
+  innerHTML = ""
   <% @review.rating.times do %>
     innerHTML += "<i class='far fa-star'></i>"
   <% end %>
-    document.getElementById("rating-booking<%= @review.booking.id %>").innerHTML = innerHTML
-    $('#myModal').modal('hide');
-    $('.modal-backdrop').remove();
+  document.getElementById("rating-booking<%= @review.booking.id %>").innerHTML = innerHTML
+  document.getElementById("rating-buttons<%= @review.booking.id %>").innerHTML = '<%= link_to "Edit", edit_review_path(@booking.review.id), remote: true, class: "btn btn-primary btn-sm"  %>'
+  $('#myModal').modal('hide');
+  $('.modal-backdrop').remove();
 <% end %>
 
 // ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL

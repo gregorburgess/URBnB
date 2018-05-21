@@ -1,6 +1,5 @@
 <div class="bookings">
   <% @booking_guest.each do |booking| %>
-
   <div class="booking" id="booking<%= booking.id%>">
     <%= cl_image_tag(booking.farm.photo, class: "img-small") %>
     <div class="booking-body">
@@ -9,32 +8,29 @@
     </div>
     <div class="booking-status">
       <%status_erb = booking.status%>
-
       <p class="<%= "status #{status_erb.downcase}" %>"><%= status_erb %></p>
       <p class="price"><%= booking.total_price %> USD</p>
     </div>
     <div class="booking-review text-center">
-
-        <% if booking.review.nil? %>
-
-          <p class="review-rating" id="rating-booking<%= booking.id%>" ></p>
-          <% if booking.review_ready? %>
-          <%= link_to "Add a review", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary btn-sm"  %>
-          <% end %>
-        <% else %>
+      <% if booking.review_ready? %>
         <p class="review-rating" id="rating-booking<%= booking.id%>" >
-          <% booking.review.rating.times do %>
-            <i class="far fa-star"></i>
+          <% if !booking.review.nil? %>
+            <% booking.review.rating.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
           <% end %>
         </p>
-           <%= link_to "Edit", edit_review_path(booking.review.id), remote: true, class: "btn btn-primary btn-sm"  %>
-        <% end %>
+        <div class="review-rating" id="rating-buttons<%= booking.id%>">
+          <% if booking.review.nil? %>
+            <%= link_to "Add a review", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary btn-sm"  %>
+          <% else %>
+            <%= link_to "Edit", edit_review_path(booking.review.id), remote: true, class: "btn btn-primary btn-sm"  %>
+          <% end %>
+        </div>
 
-
+      <% end %>
     </div>
-
   </div>
-
   <% end %>
 </div>
 

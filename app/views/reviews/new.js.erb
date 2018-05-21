@@ -1,12 +1,13 @@
 // SHOW MODAL
 $('#myModal').modal('show');
 
-
+// FUNCTION TO MODIFY DOM
 function refreshForm(innerHTML) {
   const newReviewForm = document.getElementById('myModal');
   newReviewForm.innerHTML = innerHTML;
 }
 
+// CALL OF THE FUNCTION
 refreshForm('<%= j render "reviews/form", booking: @booking, review: @review %>');
 
 // ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL
