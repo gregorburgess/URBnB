@@ -11,7 +11,8 @@
 
     <!-- Links when logged in -->
     <%= link_to "Search", farms_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Trips & Guests", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My Farms", myfarms_farms_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
@@ -26,11 +27,6 @@
           <li>
             <%= link_to "#" do %>
             <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to myfarms_farms_path do %>
-            <i class="fa fa-cog"></i>  <%= t(".settings", default: "Manage my farms") %>
             <% end %>
           </li>
           <li>
@@ -61,11 +57,6 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "Search", farms_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        </li>
-        <li>
-          <%= link_to myfarms_farms_path do %>
-          <i class="fa fa-cog"></i>  <%= t(".settings", default: "Manage my farms") %>
-          <% end %>
         </li>
         <li>
           <%= link_to "#" do %>

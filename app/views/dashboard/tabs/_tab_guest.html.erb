@@ -5,7 +5,7 @@
     <%= cl_image_tag(booking.farm.photo, class: "img-small") %>
     <div class="booking-body">
       <p><strong><%= "Booking from #{booking.start_date} to #{booking.end_date}"%></strong></p>
-      <p><%= "#{booking.farm.name} (#{booking.farm.location}, #{booking.farm.country}) " %></p>
+      <p><%= "#{booking.farm.name} (#{booking.farm.address}, #{booking.farm.country}) " %></p>
     </div>
     <div class="booking-status">
       <%status_erb = booking.status%>
@@ -16,11 +16,17 @@
     <div class="booking-review">
 
       <p class="review-rating">
-        <% booking.rating.times do %>
-        <i class="far fa-star"></i>
+        <% if booking.review.nil? %>
+          <p>No review yet</p>
+          <%= link_to "Add", new_booking_reviews_path(booking_id: booking.id), remote: true, class: "btn btn-primary"  %>
+        <% else %>
+          <% booking.review.rating.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+           <%= link_to "Edit", edit_review_path(booking.review.id), remote: true, class: "btn btn-primary"  %>
         <% end %>
       </p>
-      <%= link_to "review", dashboard_review_path(booking.id), remote: true, method: :patch, class: "btn btn-primary"  %>
+
     </div>
 
   </div>

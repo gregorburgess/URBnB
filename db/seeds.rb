@@ -29,19 +29,29 @@ userGuest4 = User.new(email: "guest4@e.e", password: "password")
 userGuest4.save!
 
 
+photo_url = "https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=187b9c5c4cab96d11794528ed75ce0d4&auto=format&fit=crop&w=2552&q=80"
+
+
 # Farms
+15.times do
+farm = Farm.new(
+  name: Faker::LordOfTheRings.location,
+  description: "Description of the farm #1",
+  address: "#{Faker::Address.state}, USA",
+  remote_photo_url: photo_url,
+  city: "city",
+  price: (34..250).to_a.sample,
+  country: "USA")
+farm.user = User.find_by_id((User.ids).sample)
+farm.save!
+end
+# farm2 = Farm.new(name: "Farm #2", description: "Description of the farm #2", address: "#{Faker::Address.state}, USA", city: "city", price: 100,  country: "USA")
+# farm2.user = userOwner2
+# farm2.save!
 
-farm1 = Farm.new(name: "Farm #1", description: "Description of the farm #1", location: "Location #1", city: "city", price: 100, country: "US")
-farm1.user = userOwner1
-farm1.save!
-
-farm2 = Farm.new(name: "Farm #2", description: "Description of the farm #2", location: "Location #2", city: "city", price: 100,  country: "US")
-farm2.user = userOwner2
-farm2.save!
-
-farm3 = Farm.new(name: "Farm #3", description: "Description of the farm #3", location: "Location #3", city: "city", price: 100,  country: "US")
-farm3.user = userOwner1
-farm3.save!
+# farm3 = Farm.new(name: "Farm #3", description: "Description of the farm #3", address: "#{Faker::Address.state}, USA", city: "city", price: 100,  country: "USA")
+# farm3.user = userOwner1
+# farm3.save!
 
 
 #Booking Farm 1
@@ -103,8 +113,6 @@ farm3.save!
 15.times do
   booking = Booking.new(
     status: ["Pending", "Accepted", "Declined"].sample,
-    review: "slkjlskjdflksdjflkjslfdkjsdlfkjsdlkfjsdlkfjlsdkjflskjdflksdjfljsldkjflksjdflkjsdlfk",
-    rating:  (0..5).to_a.sample,
     total_price: (100..250).to_a.sample,
     start_date: Faker::Date.backward(5),
     end_date: Faker::Date.forward(18),
@@ -115,11 +123,5 @@ farm3.save!
 end
 
 
-photo_url = "https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=187b9c5c4cab96d11794528ed75ce0d4&auto=format&fit=crop&w=2552&q=80"
-
-Farm.all.each do |farm|
-  farm.remote_photo_url =  photo_url
-  farm.save!
-end
 
 
