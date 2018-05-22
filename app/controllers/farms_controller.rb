@@ -8,7 +8,7 @@ class FarmsController < ApplicationController
       @farms = Farm.all
     end
 
-    @form_title = "Farm Index Page"
+    @form_title = "Farms"
     @form_myflat = false
     @farms = @farms.where.not(latitude: nil, longitude: nil)
     @markers = @farms.map do |farm|
