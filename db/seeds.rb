@@ -129,7 +129,7 @@ end
     status: ["Pending", "Accepted", "Declined"].sample,
     total_price: (100..250).to_a.sample,
     start_date: Faker::Date.backward(25),
-    end_date: Faker::Date.backward(5),
+    end_date: Date.today,
     user_id: User.pluck(:id).sample,
     farm_id: Farm.pluck(:id).sample
   )
