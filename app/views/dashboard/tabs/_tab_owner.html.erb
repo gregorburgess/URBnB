@@ -4,7 +4,6 @@
   <% @booking_owner.each do |booking| %>
 
   <div class="booking" id=<%= "booking#{booking.id}"%>>
-    <%= image_tag('avatar-placeholder.png', class: "avatar-large") %>
     <div class="booking-name">
       <h3><%=  booking.user.email%></h3>
     </div>
