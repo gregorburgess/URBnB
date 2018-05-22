@@ -3,45 +3,74 @@
 
 <div class="container">
   <div class="grid">
-  <div class="grid-title">
+    <div class="grid-title">
      <h4><%= @farm.name %></h4>
      <p> <%= @farm.address %> <%= @farm.country %></p>
+   </div>
+
+   <div class="grid-data">
+
+    <p>Avergage rating :
+
+      <% if @farm.reviews.count != 0 %>
+      <% @farm.average_rating.times do %>
+      <i class="far fa-star"></i>
+      <% end %>
+      <% else %>
+      no rating yet
+      <% end %>
+    </p>
+    <p>Price per night : <%= @farm.price %> USD</p>
+  </div>
+
+
+
+  <div class="grid-description">
+    <div class="grid-header">
+      <h3> Description </h3>
+
+    </div>
+
+    <p><%= @farm.description %></p>
+  </div>
+
+
+  <div class="grid-review">
+    <div class="grid-header">
+      <h3> Reviews </h3>
+    </div>
+
+    <div class="grid-reviews" >
+
+      <% if !@farm.reviews.nil? %>
+
+      <% @farm.reviews.each do |review| %>
+      <div class="review">
+        <div class="review-header">
+          <div>
+          <%= review.booking.user.email %></div>
+          <div>
+          <% review.rating.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          </div>
+        </div>
+        <div class="review-text">
+         <%= review.description %>
+       </div>
+     </div>
+     <%end%>
+     <%end%>
+   </div>
  </div>
 
-
-
-    <div class="grid-description">
-      <div class="grid-header">
-      <h3> Description </h3>
-      <p><%= @farm.description %></p>
-      </div>
-    </div>
-
-
-    <div class="grid-review">
-      <div class="grid-header">
-      <h3> Reviews </h3>
-      </div>
-    </div>
-
-
-    <div class="grid-form">
-      <div class="grid-header">
-      <h3> Book now ! </h3>
-      <p>Price per night : <%= @farm.price %> USD</p>
-      <p>Avergage rating :
-        <% if @farm.reviews.count != 0 %>
-        <% @farm.average_rating.times do %>
-        <i class="far fa-star"></i>
-        <% end %>
-        <% else %>
-        no rating yet
-        <% end %>
-      </p>
-      </div>
-      <%= render 'bookings/form' %>
-    </div>
+ <div class="grid-form">
+  <div class="grid-header">
+    <h3> Book now ! </h3>
   </div>
+  <%= render 'bookings/form' %>
+</div>
+</div>
 </div>
 
 
