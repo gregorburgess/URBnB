@@ -4,13 +4,13 @@
 <div class="container">
   <div class="grid">
     <div class="grid-title">
-     <h4><%= @farm.name %></h4>
+     <h4><strong><%= @farm.name %></strong></h4>
      <p> <%= @farm.address %> <%= @farm.country %></p>
    </div>
 
    <div class="grid-data">
 
-    <p>Avergage rating :
+    <p>Average rating :
 
       <% if @farm.reviews.count != 0 %>
       <% @farm.average_rating.times do %>
@@ -37,7 +37,7 @@
 
   <div class="grid-review">
     <div class="grid-header">
-      <h3> Reviews </h3>
+      <h3> Reviews <%= "(#{@farm.reviews.count})" unless @farm.reviews.nil? %></h3>
     </div>
 
     <div class="grid-reviews" >
