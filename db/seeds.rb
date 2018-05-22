@@ -36,7 +36,7 @@ photo_url = "https://source.unsplash.com/featured/?farm,farm"
 15.times do
 farm = Farm.new(
   name: Faker::LordOfTheRings.location,
-  description: "Description of the farm #1",
+  description: Faker::Hobbit.quote.first(50),
   address: "#{Faker::Address.state}, USA",
   remote_photo_url: photo_url,
   city: "city",
