@@ -1,20 +1,73 @@
--<%= render 'components/show-banner'%>	
--	
--	
--<div class="container">	
--	
--    <div class="row">	
--      <div class="col-md-8">	
--        <h3><%= @farm.name %><%= image_tag('avatar-placeholder.png', class: "avatar-large")%></h3>	
--        <p> <%= @farm.address %> <%= @farm.country %></p>	
--        <p><%= @farm.price %> USD</p>	
--        <p><%= @farm.description %></p>	
--      </div>	
--	
--	
--      <div class="col-md-4">	
--        <h3> Book now ! </h3>	
--        <%= render 'bookings/form' %>	
--      </div>	
--  </div>	
--</div>
+<%= render 'components/show-banner'%>
+
+<div class="container">
+  <div class="grid">
+    <div class="grid-title">
+     <h4><strong><%= @farm.name %></strong></h4>
+     <p> <%= @farm.address %> <%= @farm.country %></p>
+   </div>
+
+   <div class="grid-data">
+
+    <p>Average rating :
+
+      <% if @farm.reviews.count != 0 %>
+      <% @farm.average_rating.times do %>
+      <i class="far fa-star"></i>
+      <% end %>
+      <% else %>
+      no rating yet
+      <% end %>
+    </p>
+    <p>Price per night : <%= @farm.price %> USD</p>
+  </div>
+
+
+
+  <div class="grid-description">
+    <div class="grid-header">
+      <h3> Description </h3>
+
+    </div>
+
+    <p><%= @farm.description %></p>
+  </div>
+
+
+  <div class="grid-review">
+    <div class="grid-header">
+      <h3> Reviews <%= "(#{@farm.reviews.count})" unless @farm.reviews.nil? %></h3>
+    </div>
+
+    <div class="grid-reviews" >
+
+      <% if !@farm.reviews.nil? %>
+
+      <% @farm.reviews.each do |review| %>
+      <div class="review">
+        <div class="review-header">
+          <div>
+          <%= review.booking.user.email %></div>
+          <div>
+          <% review.rating.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          </div>
+        </div>
+        <div class="review-text">
+         <%= review.description %>
+       </div>
+     </div>
+     <%end%>
+     <%end%>
+   </div>
+ </div>
+
+ <div class="grid-form">
+  <div class="grid-header">
+    <h3> Book now ! </h3>
+  </div>
+  <%= render 'bookings/form' %>
+</div>
+</div>
+</div>
