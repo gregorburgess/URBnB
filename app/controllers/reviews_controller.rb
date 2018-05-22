@@ -12,15 +12,30 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.booking = Booking.find(params[:booking_id])
-    @review.save!
-    redirect_to dashboard_path
+    @booking = Booking.find(params[:booking_id])
+    @review.booking =  @booking
+    if @review.save
+      respond_to do |format|
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to dashboard_path
+    if @review.update(review_params)
+      respond_to do |format|
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   private

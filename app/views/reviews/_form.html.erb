@@ -1,6 +1,6 @@
 <div class="modal-dialog">
   <div class="modal-content">
-      <%= simple_form_for ([@booking, @review]) do |f| %>
+      <%= simple_form_for [@booking, @review], remote: true do |f| %>
         <div class="modal-header">
          <button type="button" class="close btn-close" data-dismiss="modal" aria-hidden="true" id="btn-close">&times;</button>
          <h4 class="modal-title">Your trip's review</h4>
@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <%= f.button :submit, "OK", class:"btn btn-primary btn-close"%>
+          <%= f.button :submit, "OK", remote: true, class:"btn btn-primary btn-close"%>
         </div>
     <%end%>
   </div>

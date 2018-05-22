@@ -8,6 +8,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'simple_form'
 gem 'faker'
 gem 'jquery-rails'
+gem 'bootstrap-datepicker-rails'
 
 gem 'bootsnap', require: false
 gem 'figaro'

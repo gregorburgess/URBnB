@@ -2,13 +2,16 @@
   display: flex;
   align-items: center;
   padding: 20px 50px;
+  margin-bottom:10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+    background-color: $light-gray;
 }
 .booking:last-child {
   border-bottom: none;
 }
 .booking-body {
   flex-grow: 1;
+  max-width: 600px;
 }
 .booking-name {
   padding-left: 10px;
@@ -69,6 +72,12 @@
   font-size: 14px;
   min-width: 120px;
 }
+
+.booking-feedback {
+  font-size: 14px;
+  min-width: 120px;
+}
+
 
 .review-rating {
  font-weight: bold;
