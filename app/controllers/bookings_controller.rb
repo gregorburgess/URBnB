@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
   def create
     @booking = Booking.new()
-    @booking.start_date = Date.strptime(params[:booking][:start_date], "%m/%d/%Y")
-    @booking.end_date  = Date.strptime(params[:booking][:end_date], "%m/%d/%Y")
+
+    @booking.start_date = Date.strptime(params[:booking][:start_date], "%Y-%m-%d")
+    @booking.end_date  = Date.strptime(params[:booking][:end_date], "%Y-%m-%d")
     @farm = Farm.find(params[:farm_id])
     @user = current_user
     @booking.total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
@@ -11,7 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render 'farm/show'
+      render 'farms/show', date_start: Date.new(1900,1,1)
     end
 
   end
