@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   padding: 20px 50px;
+  margin-bottom:10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+    background-color: $light-gray;
 }
 .booking:last-child {
   border-bottom: none;
