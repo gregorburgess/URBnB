@@ -1,19 +1,20 @@
 // SHOW MODAL
 $('#myModal').modal('show');
 
-// FEED MODAL WITH FORM RELATED TO CURRENT BOOKING
+// FUNCTION TO MODIFY DOM
+function refreshForm(innerHTML) {
   const newReviewForm = document.getElementById('myModal');
-  const innerHTML = '<%= j render "dashboard/tabs/form", booking: @booking %>'
   newReviewForm.innerHTML = innerHTML;
+}
+
+// CALL OF THE FUNCTION
+refreshForm('<%= j render "reviews/form", booking: @booking, review: @review %>');
 
 
 // ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL
 document.querySelectorAll(".btn-close").forEach((btn) => {
   btn.addEventListener("click", (event) => {
    $('#myModal').modal('hide');
+   $('.modal-backdrop fade in').remove()
  });
 });
-
-
-
-

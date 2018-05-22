@@ -113,11 +113,23 @@ end
 15.times do
   booking = Booking.new(
     status: ["Pending", "Accepted", "Declined"].sample,
-    review: "slkjlskjdflksdjflkjslfdkjsdlfkjsdlkfjsdlkfjlsdkjflskjdflksdjfljsldkjflksjdflkjsdlfk",
-    rating:  (1..5).to_a.sample,
     total_price: (100..250).to_a.sample,
     start_date: Faker::Date.backward(5),
     end_date: Faker::Date.forward(18),
+    user_id: User.pluck(:id).sample,
+    farm_id: Farm.pluck(:id).sample
+  )
+  booking.save!
+end
+
+
+
+10.times do
+  booking = Booking.new(
+    status: ["Pending", "Accepted", "Declined"].sample,
+    total_price: (100..250).to_a.sample,
+    start_date: Faker::Date.backward(25),
+    end_date: Date.today,
     user_id: User.pluck(:id).sample,
     farm_id: Farm.pluck(:id).sample
   )

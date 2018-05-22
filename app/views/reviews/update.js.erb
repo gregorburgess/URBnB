@@ -1,0 +1,27 @@
+
+$('#myModal').modal('show');
+
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('myModal');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "reviews/form", booking: @booking, review:  @review %>');
+<% else %>
+  innerHTML = ""
+  <% @review.rating.times do %>
+    innerHTML += "<i class='far fa-star'></i>"
+  <% end %>
+    document.getElementById("rating-booking<%= @review.booking.id %>").innerHTML = innerHTML
+    $('#myModal').modal('hide');
+    $('.modal-backdrop').remove()
+<% end %>
+
+// ADD EVENT LISTENER ON BUTTONS TO CLOSE THE MODAL
+document.querySelectorAll(".btn-close").forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+   $('#myModal').modal('hide');
+   $('.modal-backdrop').remove()
+ });
+});

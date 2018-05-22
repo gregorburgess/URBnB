@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new()
+
+    @booking.start_date = Date.strptime(params[:booking][:start_date], "%Y-%m-%d")
+    @booking.end_date  = Date.strptime(params[:booking][:end_date], "%Y-%m-%d")
     @farm = Farm.find(params[:farm_id])
     @user = current_user
     @booking.total_price = ((@booking.end_date - @booking.start_date).to_i) * @farm.price
@@ -9,7 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render 'farm/show'
+      render 'farms/show', date_start: Date.new(1900,1,1)
     end
 
   end
@@ -28,22 +31,26 @@ class BookingsController < ApplicationController
   def approve
     @booking = Booking.find(params[:id])
     @booking.update(status: "Accepted")
-   redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
-  end
+    respond_to do |format|
+        format.js  # <-- idem
+      end
+    end
 
-  def declined
-    @booking = Booking.find(params[:id])
-    @booking.update(status: "Declined")
-    redirect_to dashboard_owner_path(anchor: "booking#{@booking.id}")
-  end
+    def decline
+      @booking = Booking.find(params[:id])
+      @booking.update(status: "Declined")
+      respond_to do |format|
+        format.js  # <-- idem
+      end
+    end
 
-  def review
-    @booking = Booking.find(params[:id])
-  end
+    def review
+      @booking = Booking.find(params[:id])
+    end
 
-  private
+    private
 
-  def booking_params
-    params.require(:booking).permit(:rating, :review, :start_date, :end_date)
+    def booking_params
+      params.require(:booking).permit(:start_date, :end_date)
+    end
   end
-end
