@@ -2,11 +2,15 @@ class FarmsController < ApplicationController
   before_action :set_farm, only: [:show, :edit, :update, :destroy]
 
   def index
-    @farms = Farm.all
+    if params[:query].present?
+      @farms = Farm.search_by_farm_attributes(params[:query])
+    else
+      @farms = Farm.all
+    end
+
     @form_title = "Farm Index Page"
     @form_myflat = false
-    @farms = Farm.where.not(latitude: nil, longitude: nil)
-
+    @farms = @farms.where.not(latitude: nil, longitude: nil)
     @markers = @farms.map do |farm|
       {
         lat: farm.latitude,

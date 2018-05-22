@@ -1,8 +1,9 @@
 .booking {
   display: flex;
   align-items: center;
-  padding: 20px 50px;
-  margin-bottom:10px;
+
+  padding: 10px 0px 0px 0px;
+
   border-bottom: 1px solid rgba(220,224,244,0.4);
     background-color: $light-gray;
 }
@@ -28,13 +29,9 @@
   margin-top: 5px;
 }
 .booking-body {
-  padding-left: 10px;
   font-size: 13px;
   color: rgba(0,0,0,0.7);
-}
-.booking-body {
   padding-left: 20px;
-  color: rgba(0,0,0,0.4);
 }
 .booking-body strong{
   color: rgba(0,0,0,0.9);
@@ -46,6 +43,7 @@
 .booking-status {
   font-size: 14px;
   width: 120px;
+  padding-left: 20px;
 }
 
 .status {
@@ -71,6 +69,7 @@
 .booking-review {
   font-size: 14px;
   min-width: 120px;
+  padding-left: 20px;
 }
 
 .booking-feedback {
@@ -87,5 +86,3 @@
   font-size: 14px;
   font-weight: lighter;
 }
-
-
