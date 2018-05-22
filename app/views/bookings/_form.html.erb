@@ -1,11 +1,6 @@
-<div class="container">
-   <div class="row">
-    <!-- <div class="col-xs-3 col-sm-4"> -->
+
       <%= simple_form_for([@farm,@booking]) do |f| %>
       <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: "Check in"  %>
       <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: "Check out" %>
       <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
-    <!-- </div> -->
-  </div>
-</div>

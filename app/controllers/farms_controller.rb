@@ -22,7 +22,7 @@ class FarmsController < ApplicationController
   end
 
   def myfarms
-    @farms = Farm.where(user: current_user).where.not(latitude: nil, longitude: nil)
+    @farms = Farm.where(user: current_user)
     @form_title = "My farms"
     @form_myflat = true
 
