@@ -17,6 +17,6 @@ class Farm < ApplicationRecord
 
 
   def average_rating
-    self.reviews.pluck(:rating).reduce(:+)
+    (self.reviews.pluck(:rating).reduce(:+) * 1.0 / self.reviews.count).floor
   end
 end
