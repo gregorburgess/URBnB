@@ -1,8 +1,12 @@
 <!-- <div class="container"> -->
-<h1><%= @form_title %></h1>
 
-<div class="urb-form-container">
-  <%= form_tag farms_path, class: @form_myflat ? "hidden" : "visible", method: :get do %>
+<div class="urb-title-area-container-with-button">
+<h2><%= @form_title %></h2>
+<%= button_to "Add a new farm", new_farm_path, method: :get, class: @form_myflat ? "btn btn-primary" : "hidden" %>
+</div>
+
+<div class="urb-form-container" <%= @form_myflat ? "hidden" : "visible" %>>
+  <%= form_tag farms_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
@@ -10,10 +14,6 @@
     %>
   <% end %>
 </div>
-
-<%= button_to "Add a new farm", new_farm_path, method: :get,  class: @form_myflat ? "btn btn-primary" : "hidden" %>
-
-
   <div class="main-container">
     <%= render 'shared/cards', class: "cards" %>
       <div
@@ -25,7 +25,7 @@
 
         data-markers="<%= @markers.to_json %>"
       >
-      </div>
+    </div>
   </div>
 
 
