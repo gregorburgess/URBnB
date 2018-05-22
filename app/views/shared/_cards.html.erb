@@ -10,6 +10,13 @@
           <div class="card-description">
           <h2><%=farm.name%></h2>
           <p>$<%=farm.price%>per night</p>
+          <% if farm.reviews.count != 0 %>
+          <% farm.average_rating.times do %>
+          <i class="far fa-star"></i>
+          <% end %>
+          <% else %>
+          <%= "" %>
+      <% end %>
           </div>
           <a class="card-link" href="#" ></a>
           <%= link_to "", farm_path(farm), :class=> "card-link" %>
