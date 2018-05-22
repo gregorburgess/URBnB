@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :farms, only: [:new, :create, :edit, :update, :index, :show, :destroy] do
+  resources :farms, only: [:new, :create, :edit, :update, :index, :show, :destroy,] do
     resource :bookings, only: [:new, :create]
 
     collection do
@@ -22,3 +22,4 @@ Rails.application.routes.draw do
 
 
 end
+

@@ -16,8 +16,15 @@ class Farm < ApplicationRecord
   # Adds search functionality to the index page search bar
   include PgSearch
   pg_search_scope :search_by_farm_attributes,
-    against: [ :name, :description, :city, :country, :address],
+  against: [ :name, :description, :city, :country, :address],
     using: {
       tsearch: { prefix: true } # <-- for eg now `london frm` will return something!
     }
+  # pg_search_scope :user_associated_search,
+  # against: [ :name, :description, :city, :country, :address],
+  #   associated_against: {
+  #     user: [ :email ]
+  #   }
 end
+
+
