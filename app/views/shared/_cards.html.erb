@@ -4,7 +4,7 @@
 
     <%  @farms.each do |farm| %>
      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path farm.photo, height: 300, width: 400, crop: :fill %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path ("10.png")%>);">
          <div class="card-category"><%= farm.description %>
          </div>
           <div class="card-description">
